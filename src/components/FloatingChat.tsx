@@ -45,6 +45,29 @@ export default function FloatingChat({ currentLang }: FloatingChatProps) {
 
   const { url: whatsAppUrl, title: whatsAppTitle } = getWhatsAppDetails();
 
+  // Configure Telegram link details based on selected language
+  const telegramUsername = "altynpalace_bot";
+  const getTelegramDetails = () => {
+    if (currentLang === 'KG') {
+      return {
+        url: `https://t.me/${telegramUsername}`,
+        title: "Телеграм аркылуу байланышуу"
+      };
+    } else if (currentLang === 'RU') {
+      return {
+        url: `https://t.me/${telegramUsername}`,
+        title: "Связаться через Telegram"
+      };
+    } else {
+      return {
+        url: `https://t.me/${telegramUsername}`,
+        title: "Direct Telegram Chat"
+      };
+    }
+  };
+
+  const { url: telegramUrl, title: telegramTitle } = getTelegramDetails();
+
   // Initialize history with polite concierge greeting
   const [aiHistory, setAiHistory] = useState<ChatMessage[]>(() => {
     return [
@@ -295,6 +318,24 @@ export default function FloatingChat({ currentLang }: FloatingChatProps) {
 
         </div>
       )}
+
+      {/* Persistent Telegram Floating Button */}
+      <a
+        href={telegramUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="h-14 w-14 bg-[#0088cc] hover:bg-[#007bbd] text-white rounded-full shadow-[0_8px_32px_rgba(0,136,204,0.35)] flex items-center justify-center relative cursor-pointer transition-all duration-300 hover:scale-105 active:scale-95 group mb-2"
+        id="telegram-floating-trigger"
+        aria-label="Direct Telegram Contact"
+        title={telegramTitle}
+      >
+        <svg viewBox="0 0 24 24" fill="currentColor" className="h-6 w-6 text-white transition-transform group-hover:rotate-6 duration-350">
+          <path d="M11.99 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.62 0 11.99 0zM17.5 8.95l-1.72 8.12c-.13.58-.48.72-.96.44l-2.62-1.93-1.26 1.22c-.14.14-.26.26-.53.26l.19-2.66 4.84-4.37c.21-.19-.05-.29-.33-.11L9.13 13.04l-2.58-.81c-.56-.18-.57-.56.12-.83l10.08-3.89c.47-.17.88.11.75.71z"/>
+        </svg>
+        <span className="absolute -top-1 -right-1 bg-sky-100 text-sky-950 text-[8px] font-mono font-bold tracking-tighter px-1.5 py-0.5 rounded-full shadow border border-sky-500 pointer-events-none">
+          TG
+        </span>
+      </a>
 
       {/* Persistent WhatsApp Floating Button */}
       <a

@@ -60,6 +60,8 @@ export default function App() {
   const t = (key: string) => TRANSLATIONS[key]?.[currentLang] || key;
 
   const whatsAppPhone = "996555775555";
+  const telegramUsername = "altynpalace_bot";
+  const telegramUrl = `https://t.me/${telegramUsername}`;
   const whatsAppUrl = currentLang === 'KG'
     ? `https://wa.me/${whatsAppPhone}?text=Саламатсызбы%20Altyn%20Palace%20жана%20Гүлжан%20айымдын%20курорту!%20Бөлмөлөрдү%20жана%20кызматтарды%20брондоо%20кызыктырат.`
     : currentLang === 'RU'
@@ -167,6 +169,21 @@ export default function App() {
                     </svg>
                     <span>
                       {currentLang === 'KG' ? "WhatsApp байланыш" : currentLang === 'RU' ? "Связаться в WhatsApp" : "WhatsApp Chat"}
+                    </span>
+                  </a>
+
+                  <a
+                    href={telegramUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full sm:w-auto px-8 py-4 bg-[#0088cc] hover:bg-[#007bbd] text-white hover:text-white font-bold text-xs tracking-widest uppercase transition-all duration-300 rounded-sm shadow-[0_4px_20px_rgba(0,136,204,0.3)] flex items-center justify-center space-x-2"
+                    id="hero-telegram-btn"
+                  >
+                    <svg viewBox="0 0 24 24" fill="currentColor" className="h-4.5 w-4.5 shrink-0">
+                      <path d="M11.99 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.62 0 11.99 0zM17.5 8.95l-1.72 8.12c-.13.58-.48.72-.96.44l-2.62-1.93-1.26 1.22c-.14.14-.26.26-.53.26l.19-2.66 4.84-4.37c.21-.19-.05-.29-.33-.11L9.13 13.04l-2.58-.81c-.56-.18-.57-.56.12-.83l10.08-3.89c.47-.17.88.11.75.71z"/>
+                    </svg>
+                    <span>
+                      {currentLang === 'KG' ? "Telegram байланыш" : currentLang === 'RU' ? "Связаться в Telegram" : "Telegram Chat"}
                     </span>
                   </a>
                   <button
