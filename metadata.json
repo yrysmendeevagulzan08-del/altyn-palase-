@@ -1,0 +1,8 @@
+{
+  "name": "Remix: Altyn Palace Resort",
+  "description": "Premium 5-star hotel booking app with an online AI assistant concierge, interactive room rates estimator, story of founder Guljan, and diplomatic guest reviews.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
